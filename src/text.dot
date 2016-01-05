@@ -1,0 +1,7 @@
+digraph sassy_uml{node [shape = "record"] FileSubject[label = "{FileSubject|| + registerObserver(OutputObserver) : void\l+ removeObserver(OutputObserver) : void\l+ notifyObservers() : void\l}"]FileContentOutput[label = "{FileContentOutput|| + update(Path) : void\l}"]FileNameOutput[label = "{FileNameOutput|| + update(Path) : void\l}"]OutputObserver[label = "{OutputObserver|| + update(Path) : void\l}"]PdfAppType[label = "{PdfAppType|| + getCommand() : String\l}"]TextAppType[label = "{TextAppType|| + getCommand() : String\l}"]IFileType[label = "{IFileType|| + getCommand() : String\l}"]WebAppType[label = "{WebAppType|| + getCommand() : String\l}"]AppLauncher[label = "{AppLauncher|- watcher : java.nio.file.WatchService\l- dir : java.nio.file.Path\l- stop : boolean\l- processes : java.util.List\l- fileTypes : java.util.HashMap\l- outputObservers : java.util.List\l- path : java.nio.file.Path\l| + run() : void\l# clearEverything() : void\l+ stopGracefully() : void\l+ isRunning() : boolean\l+ getApplicationsCount() : int\l+ handleDirectoryEvent(String, Path) : void\l+ main(String[]) : void\l+ registerObserver(OutputObserver) : void\l+ removeObserver(OutputObserver) : void\l+ notifyObservers() : void\l}"]edge [arrowhead = "empty"]edge [style = "dashed"]FileContentOutput->OutputObserver
+FileNameOutput->OutputObserver
+PdfAppType->IFileType
+TextAppType->IFileType
+WebAppType->IFileType
+AppLauncher->FileSubject
+}
