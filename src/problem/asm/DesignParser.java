@@ -8,8 +8,11 @@ import org.objectweb.asm.Opcodes;
 
 public class DesignParser {
 	public static final String[] classes = {
-		"problem.AppLauncher", "problem.FileContentOutput", "problem.FileNameOutput", "problem.FileSubject", "problem.IFileType", "problem.OutputObserver",
-		"problem.PdfAppType", "problem.TextAppType", "problem.WebAppType"
+//		"problem.asm.ClassDeclarationVisitor", "problem.asm.ClassFieldVisitor", "problem.asm.ClassMethodVisitor", 
+//		"problem.asm.DesignParser", "problem.asm.FirstASM", "problem.asm.SassyClass", "problem.asm.SassyField", 
+//		"problem.asm.SassyMethod", "problem.asm.UMLDrawer"
+		
+		"problem.asm.SassyField"
 	};
 	/**
 	 * Reads in a list of Java Classes and reverse engineers their design.
