@@ -10,6 +10,8 @@ public class SassyClass {
 	private String classExtends;
 	private ArrayList<SassyField> fields;
 	private boolean isInterface;
+	private ArrayList<String> usesClasses;
+	private ArrayList<String> associationClasses;
 	
 	public SassyClass(){
 		classMethods = new ArrayList<SassyMethod>();
@@ -18,6 +20,8 @@ public class SassyClass {
 		className = "";
 		classExtends = "";
 		isInterface = false;
+		usesClasses = new ArrayList<String>();
+		associationClasses = new ArrayList<String>();
 	}
 	
 	public ArrayList<SassyField> getFields(){
@@ -66,6 +70,28 @@ public class SassyClass {
 
 	public void setClassExtends(String classExtends) {
 		this.classExtends = classExtends;
+	}
+
+	public void addUsesClasses(String owner) {
+		// TODO Auto-generated method stub
+		if(!this.usesClasses.contains(owner)) {
+			this.usesClasses.add(owner);
+		}
+		
+	}
+	
+	public ArrayList<String> getUsesClasses() {
+		return this.usesClasses;
+	}
+	
+	public void addAssociationClasses(String owner) {
+		if(!this.associationClasses.contains(owner)) {
+			this.associationClasses.add(owner);
+		}
+	}
+	
+	public ArrayList<String> getAssociationClasses() {
+		return this.associationClasses;
 	}
 	
 	

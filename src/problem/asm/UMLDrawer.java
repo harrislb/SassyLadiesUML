@@ -30,6 +30,8 @@ public class UMLDrawer {
 		}
 		this.addExtensionArrows(build);
 		this.addInterfaceArrows(build);
+		this.addUsesArrows(build);
+		this.addAssociationArrows(build);
 		build.append("}");
 		System.out.println(build.toString()); 
 	}
@@ -87,6 +89,29 @@ public class UMLDrawer {
 		}
 	}
 	
-	
+	private void addAssociationArrows(StringBuilder build) {
+		// TODO Auto-generated method stub
+		build.append("edge [style = \"solid\"] [arrowhead = \"open\"]\n\t");
+		for(String scName : this.classMap.keySet()){
+			SassyClass sc = this.classMap.get(scName);
+			for(String as : sc.getAssociationClasses()){
+				//TODO: Convert ArrayList<SassyMethod> -> SassyMethod (Check for '<')
+				String getClass = as;
+				build.append(sc + "->" + getClass);
+			}
+		}
+	}
+	private void addUsesArrows(StringBuilder build) {
+		// TODO Auto-generated method stub
+		build.append("edge [style = \"dashed\"] [arrowhead = \"open\"]\n\t");
+		for(String scName : this.classMap.keySet()){
+			SassyClass sc = this.classMap.get(scName);
+			for(String as : sc.getUsesClasses()){
+				//TODO: Convert ArrayList<SassyMethod> -> SassyMethod (Check for '<')
+				String getClass = as;
+				build.append(sc + "->" + getClass);
+			}
+		}
+	}
 
 }

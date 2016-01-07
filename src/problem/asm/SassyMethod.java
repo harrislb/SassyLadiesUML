@@ -7,13 +7,24 @@ public class SassyMethod {
 	private String methodName;
 	private String methodReturnType; 
 	private String methodAccess;
+	private String signature;
 	private ArrayList<String> argTypes;
-	
+	private ArrayList<String> localVars;
 	public SassyMethod(){
 		argTypes = new ArrayList<String>();
+		localVars = new ArrayList<String>();
 		methodName = "";
 		methodReturnType = "";
 		methodAccess = "";
+		signature ="";
+	}
+	
+	public void setSignature(String sig){
+		this.signature = sig;
+	}
+	
+	public String getSignature(){
+		return this.signature;
 	}
 	
 	public String getMethodName() {
@@ -46,6 +57,10 @@ public class SassyMethod {
 
 	public void addArgTypes(String argType) {
 		this.argTypes.add(argType.substring(argType.lastIndexOf(".")+1));
+	}
+	
+	public void addLocalVars(String var){
+		this.localVars.add(var);
 	}
 
 
